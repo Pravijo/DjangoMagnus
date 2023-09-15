@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Employee
+from .models import Pets
 
 # Create your views here.
 def home(request):
@@ -19,3 +20,15 @@ def welcome(request):
 
 def contact(request):
     return HttpResponse("<h1>This is contact page</h1>")
+
+
+def emp(request):
+    emp_data = Employee.objects.all()
+    data = {"Employee":emp_data}
+    return render(request,'MyFirstApp/Emp.html',context=data)
+
+
+def pet(request):
+    pet_data = Pets.objects.all()
+    data = {"Pets":pet_data}
+    return render(request,'MyFirstApp/Pet.html',context=data)

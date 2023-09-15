@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Pet Info</h1>
+    <table border="1">
+        <thead>
+            <th>PETNAME</th>
+            <th>PETCOLOR</th>
+            <th>PETAGE</th>
+        </thead>
+        {% for pet in Pets %}
+        <tr>
+            <td>{{ pet.petname }}</td>
+            <td>{{ pet.petcolor }}</td>
+            <td>{{ pet.petage }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+</body>
+</html>
