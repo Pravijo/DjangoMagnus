@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Employee
 from .models import Pets
+from .forms import UserForm
 
 # Create your views here.
 def home(request):
@@ -32,3 +33,14 @@ def pet(request):
     pet_data = Pets.objects.all()
     data = {"Pets":pet_data}
     return render(request,'MyFirstApp/Pet.html',context=data)
+
+
+def form_page(request):
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data['user'])
+            print(form.cleaned_data['email'])
+            print(form.cleaned_data['password'])
+    return render(request,'MyFirstApp/UserForm.html',{'form':form})
