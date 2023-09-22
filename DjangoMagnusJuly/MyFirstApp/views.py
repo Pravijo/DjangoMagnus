@@ -6,8 +6,7 @@ from .forms import UserForm, EmpForm
 
 # Create your views here.
 def home(request):
-    data = {"name":"Valli"}
-    return render(request,'MyFirstApp/Home.html',context=data)
+    return render(request,'MyFirstApp/base.html')
     # return HttpResponse("<h1>Welcome to Django</h1>")
 
 
