@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Employee
+from .models import Employee, Car
 from .models import Pets
 from .forms import UserForm, EmpForm
+from rest_framework import viewsets
+from .serializers import CarSerializer
+
+
+class CarViewSet(viewsets.ModelViewSet):
+    queryset = Car.objects.all().order_by('CModel')
+    serializer_class = CarSerializer
 
 # Create your views here.
+
+
 def home(request):
     return render(request,'MyFirstApp/base.html')
     # return HttpResponse("<h1>Welcome to Django</h1>")
